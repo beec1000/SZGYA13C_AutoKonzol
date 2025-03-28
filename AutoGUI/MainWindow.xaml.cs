@@ -15,6 +15,7 @@ namespace AutoGUI
     public partial class MainWindow : Window
     {
         List<Auto> autok = new List<Auto>();
+        string radioButton = string.Empty;
         public MainWindow()
         {
             InitializeComponent();
@@ -60,11 +61,22 @@ namespace AutoGUI
             var keresettAuto = autok.Where(a => a.Gyarto.GyartoNev.Contains(Convert.ToString(autoGyartokLB.SelectedItem)) &&
                                                 a.Karosszeria.KarosszeriaNev.Contains(Convert.ToString(karosszeriaCB.SelectedItem)) &&
                                                 a.Valto.ValtoNev.Contains(Convert.ToString(valtoCB.SelectedItem)) &&
+                                                a.Ajtok == int.Parse(radioButton) &&
                                                 a.Evjarat <= 2023 - minEv && a.Evjarat >= 2023 - maxEv)
                                     .Select(a => $"{a.Azonosito}. - {a.Evjarat} - {a.KilometerAllas} km - {a.Ar} CAD").ToList();
 
 
             keresettAutokLB.ItemsSource = keresettAuto;
+        }
+
+        private void RadioButton_Checked(object sender, RoutedEventArgs e)
+        {
+            var radio = sender as RadioButton;
+            if(radio == null)
+            {
+                return;
+            }
+            radioButton = radio.Content.ToString();
         }
     }
 }

@@ -31,10 +31,10 @@
 
         <GroupBox Header="Ajtók száma" Grid.Column="1" Grid.Row="1">
             <StackPanel x:Name="ajtok">
-                <RadioButton Content="2" />
-                <RadioButton Content="3" />
-                <RadioButton Content="4" />
-                <RadioButton Content="5" />
+                <RadioButton Content="2" Checked="RadioButton_Checked" />
+                <RadioButton Content="3" Checked="RadioButton_Checked" />
+                <RadioButton Content="4" Checked="RadioButton_Checked" />
+                <RadioButton Content="5" Checked="RadioButton_Checked" />
             </StackPanel>
         </GroupBox>
 
